@@ -5,6 +5,7 @@ Predicting MBTI Personality Types with Django and Machine Learning  This reposit
 
 - Kaggle Notebook: https://www.kaggle.com/code/abdelkarimbsalah/notebook18d15ca57a
 - Origonal dataset: https://www.kaggle.com/datasets/datasnaek/mbti-type
+- Original paper: https://pdfs.semanticscholar.org/6399/91916d01f962aef01d117dbe33dc3e11852e.pdf
 
 ## Overview
 
