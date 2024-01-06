@@ -1,0 +1,32 @@
+<!-- mbti_app/templates/mbti_app/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MBTI Predictor{% endblock %}</title>
+    <!-- Include any common stylesheets, scripts, or meta tags -->
+</head>
+<body>
+    <header>
+        <h1>MBTI Personality Type Predictor</h1>
+        <!-- Include any common header content -->
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Include any common footer content -->
+        <p>&copy; 2024 MBTI Predictor</p>
+    </footer>
+</body>
+</html>

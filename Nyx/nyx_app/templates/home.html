@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>MBTI Personality Prediction</h2>
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Predict</button>
+  </form>
+
+  <h3>Predicted MBTI Types:</h3>
+  <ul>
+    {% for user_input in user_inputs %}
+      <li>{{ user_input.text }} - {{ user_input.predicted_mbti }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

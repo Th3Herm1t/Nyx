@@ -3,6 +3,9 @@ Predicting MBTI Personality Types with Django and Machine Learning  This reposit
 
 # MBTI Personality Prediction with Django and Machine Learning
 
+Kaggle Notebook: https://www.kaggle.com/code/abdelkarimbsalah/notebook18d15ca57a
+Origonal dataset: https://www.kaggle.com/datasets/datasnaek/mbti-type
+
 ## Overview
 
 This Django web application predicts MBTI (Myers-Briggs Type Indicator) personality types based on user-input text. The project integrates a machine learning model trained on MBTI data, allowing users to explore and interact with personality predictions.
