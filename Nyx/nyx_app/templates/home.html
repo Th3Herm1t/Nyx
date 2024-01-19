@@ -9,21 +9,23 @@
         <div class="text-center mb-5">
           <h2 class="mb-4">MBTI Personality Prediction</h2>
           
-          <form method="post">
+          <form method="post" action="{% url 'home' %}">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary">Predict</button>
           </form>
         </div>
 
-        <div>
-          <h3 class="mb-3">Predicted MBTI Types:</h3>
-          <ul class="list-group">
-            {% for user_input in user_inputs %}
-              <li class="list-group-item">{{ user_input.text }} - {{ user_input.predicted_mbti }}</li>
-            {% endfor %}
-          </ul>
-        </div>
+        {% if predicted_mbti %}
+          <div class="mb-3">
+            <h3>Predicted MBTI Type:</h3>
+            <p>{{ predicted_mbti }}</p>
+          </div>
+          <div class="mb-3">
+            <h3>Personality Profile:</h3>
+            <p>{{ personality_description }}</p>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
