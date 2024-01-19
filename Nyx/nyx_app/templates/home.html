@@ -1,18 +1,30 @@
+<!-- nyx_app/templates/home.html -->
+
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>MBTI Personality Prediction</h2>
-  
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Predict</button>
-  </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="text-center mb-5">
+          <h2 class="mb-4">MBTI Personality Prediction</h2>
+          
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Predict</button>
+          </form>
+        </div>
 
-  <h3>Predicted MBTI Types:</h3>
-  <ul>
-    {% for user_input in user_inputs %}
-      <li>{{ user_input.text }} - {{ user_input.predicted_mbti }}</li>
-    {% endfor %}
-  </ul>
+        <div>
+          <h3 class="mb-3">Predicted MBTI Types:</h3>
+          <ul class="list-group">
+            {% for user_input in user_inputs %}
+              <li class="list-group-item">{{ user_input.text }} - {{ user_input.predicted_mbti }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
