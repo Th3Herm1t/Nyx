@@ -1,36 +1,64 @@
-# Nyx
-Predicting MBTI Personality Types with Django and Machine Learning  This repository houses a Django web application that leverages a machine learning model to predict MBTI (Myers-Briggs Type Indicator) personality types based on text input.
+# Nyx: MBTI Personality Prediction
+This Django web application predicts MBTI (Myers-Briggs Type Indicator) personality types based on user input text. The project integrates a machine learning model trained on MBTI data, allowing users to explore and interact with personality predictions.
 
-# MBTI Personality Prediction with Django and Machine Learning
+   - Kaggle Notebook: https://www.kaggle.com/code/abdelkarimbsalah/notebook18d15ca57a
+   - Original dataset: https://www.kaggle.com/datasets/datasnaek/mbti-type
+   - Inspiration: https://pdfs.semanticscholar.org/6399/91916d01f962aef01d117dbe33dc3e11852e.pdf
 
-- Kaggle Notebook: https://www.kaggle.com/code/abdelkarimbsalah/notebook18d15ca57a
-- Origonal dataset: https://www.kaggle.com/datasets/datasnaek/mbti-type
-- Original paper: https://pdfs.semanticscholar.org/6399/91916d01f962aef01d117dbe33dc3e11852e.pdf
+## Objective and Goals
+Nyx aims to provide a practical MBTI personality predictor with real-world applications in marketing, content suggestion, job matching, and more.
 
-## Overview
 
-This Django web application predicts MBTI (Myers-Briggs Type Indicator) personality types based on user-input text. The project integrates a machine learning model trained on MBTI data, allowing users to explore and interact with personality predictions.
+## Planning and Timeline
+1. **ML Model Refinement:**
+   - Explored various algorithms and techniques to perfect the ML model.
+   - Iterative testing and improvement.
 
-## Features
+2. **Django Web App Development:**
+   - Constructed a Django web app as a wrapper around the chosen ML model.
+   - Ensured seamless integration of the model into the app.
 
-- **Text Input:** Users can enter text, and the system will predict their MBTI personality type.
+3. **Integration and Optimization:**
+   - Successfully integrated the ML model into the app.
+   - Optimization for real-world applications.
 
-- **Machine Learning Model:** The underlying model utilizes natural language processing techniques to make accurate predictions.
+## Communication and Engagement
+Engaged extensively with the instructor and the AI community:
+- Sought advice on ML model improvement.
+- Collaborated for insights into effective deployment and applications.
 
-- **Django Web Interface:** A user-friendly web interface provides an intuitive experience for interacting with the model.
+## Problem Definition and Innovative Solution
+The challenge: Build a highly accurate ML model for better insight into the human psyche. The innovation lies in predicting personality types from authentic text-based input, a departure from traditional assessment methods.
 
-## Getting Started
+## Data Collection
+Utilized a Kaggle dataset:
+- Selected data aligned with computational power constraints.
+- Ensured relevance for accurate personality predictions.
 
-### Prerequisites
+## Dataset Exploration
+- Conducted statistical analysis.
+- Visualized key insights for better understanding.
 
-- Python
-- Django
-- Other dependencies (listed in requirements.txt)
+## User Interaction
+1. **Simple Input Mechanism:**
+   - Users input text.
+   - Press the predict button.
 
-### Installation
+2. **Output Information:**
+   - Receive predicted personality type.
+   - Access detailed personality profile.
+   - View prediction accuracy.
 
-1. Clone the repository:
+## ML Model Details
+**Data Preprocessing:**
+1. Text cleaning:
+   - Tokenization, stop word removal, punctuation removal, stemming/lemmatization.
 
-   ```bash
-   git clone https://github.com/Th3Herm1t/Nyx
+2. Label encoding:
+   - Convert categorical personality types into numerical values.
 
+**Feature Engineering:**
+- Convert text data into numerical vectors using TF-IDF or word embeddings.
+
+**Model Selection:**
+- SVM model was selected as the highest-performing among various tried algorithms.
