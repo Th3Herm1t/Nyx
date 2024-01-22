@@ -19,15 +19,14 @@ def home(request):
 
     if request.method == 'POST':
         form = MBTIForm(request.POST)
-        print(form.errors)
-    if form.is_valid():
-        user_input_text = form.cleaned_data['text']
+        if form.is_valid():
+            user_input_text = form.cleaned_data['text']
 
-        # Perform prediction using the SVM model
-        predicted_mbti, personality_description = predict_mbti(user_input_text)
+            # Perform prediction using the SVM model
+            predicted_mbti, personality_description, precision = predict_mbti(user_input_text)
 
-        # Pass the predicted result and personality description to the template for rendering
-        return render(request, 'home.html', {'form': form, 'predicted_mbti': predicted_mbti, 'personality_description': personality_description})
+            # Pass the predicted result, personality description, and precision to the template for rendering
+            return render(request, 'home.html', {'form': form, 'predicted_mbti': predicted_mbti, 'personality_description': personality_description, 'precision': precision})
 
     return render(request, 'home.html', {'form': form})
 
@@ -98,7 +97,47 @@ def predict_mbti(text):
 
     # Fetch personality description from the dictionary
     personality_description = PERSONALITY_PROFILES.get(original_label)
+    precision = get_precision_for_encoded_type(predicted_mbti)
 
-    return original_label, personality_description
+    return original_label, personality_description, precision
 
 
+def get_precision_for_encoded_type(encoded_type):
+    # Dictionary with precision values for each encoded type
+    precision_dict = {
+        0: 0.67,
+        1: 0.72,
+        2: 0.79,
+        3: 0.68,
+        4: 0.33,
+        5: 0.00,
+        6: 1.00,
+        7: 0.86,
+        8: 0.64,
+        9: 0.61,
+        10: 0.62,
+        11: 0.72,
+        12: 1.00,
+        13: 0.71,
+        14: 0.77,
+        15: 0.74,
+    }
+
+    return precision_dict.get(encoded_type)
+
+# views.py
+
+from ..models import Feedback
+from ..forms import FeedbackForm
+
+def feedback(request):
+    feedback_form = FeedbackForm()
+
+    if request.method == 'POST':
+        feedback_form = FeedbackForm(request.POST)
+        if feedback_form.is_valid():
+            user_input_text = feedback_form.cleaned_data['text']
+            # You might want to adjust the logic here based on your requirements
+            Feedback.objects.create(user_input_text=user_input_text, feedback_text=feedback_text)
+
+    return render(request, 'feedback.html', {'feedback_form': feedback_form})

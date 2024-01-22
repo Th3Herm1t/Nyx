@@ -10,3 +10,6 @@ class UserInput(models.Model):
     def __str__(self):
         return f"{self.text} - {self.predicted_mbti}"
 
+class Feedback(models.Model):
+    user_input = models.ForeignKey(UserInput, on_delete=models.CASCADE)  
+    feedback_text = models.TextField()

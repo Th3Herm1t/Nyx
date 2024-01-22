@@ -17,15 +17,18 @@
         </div>
 
         {% if predicted_mbti %}
-          <div class="mb-3">
-            <h3>Predicted MBTI Type:</h3>
-            <p>{{ predicted_mbti }}</p>
-          </div>
-          <div class="mb-3">
-            <h3>Personality Profile:</h3>
-            <p>{{ personality_description }}</p>
-          </div>
-        {% endif %}
+        <div class="mb-3">
+          <h3>Predicted MBTI Type:</h3>
+          <p style="color: black;">{{ predicted_mbti }}</p>
+        </div>
+        <div class="mb-3">
+          <h3>Personality Profile:</h3>
+          <p style="color: black;">{{ personality_description }}</p>
+        </div>
+        <div class="mb-3">
+          <h3>Precision: {{ precision }} </h3>
+        </div>
+      {% endif %}
       </div>
     </div>
   </div>

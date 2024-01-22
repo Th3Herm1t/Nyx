@@ -126,3 +126,9 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CSRF_COOKIE_SECURE = True
+
+ALLOWED_HOSTS = ['.vercel.app']
+
+CSRF_TRUSTED_ORIGINS = [
+'https://glowing-fiesta-94px55gp95g27jw7-8000.preview.app.github.dev'
+]
