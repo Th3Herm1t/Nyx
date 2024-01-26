@@ -12,6 +12,10 @@ import joblib
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+import nltk
+
+nltk.download('punkt')
+nltk.download('stopwords')
 
 @csrf_protect
 def home(request):
