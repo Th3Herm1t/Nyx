@@ -96,7 +96,7 @@ def predict_mbti(text):
     # Make predictions using the SVM model
     predicted_mbti = svm_model.predict(text_vectorized)[0]
    # Load the label encoder
-    label_encoder = joblib.load('/workspaces/Nyx/label_encoder.joblib')
+    label_encoder = joblib.load('label_encoder.joblib')
     original_label = label_encoder.inverse_transform([predicted_mbti])[0]
 
     # Fetch personality description from the dictionary
