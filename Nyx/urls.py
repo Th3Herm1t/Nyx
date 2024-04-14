@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from nyx_app.templates.views import home, feedback
+from nyx_app.templates.views import home, feedback, companies
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', home, name='home'),
-    path('feedback/', feedback, name='feedback')
+    path('feedback/', feedback, name='feedback'),
+    path('companies/', companies, name='companies')
     
 ]

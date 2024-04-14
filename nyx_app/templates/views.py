@@ -151,7 +151,7 @@ from ..models import Company
 from ..utils import get_mongo_connection
 import Nyx.settings as settings
 
-def company_data(request):
+def companies(request):
     client = get_mongo_connection()
     db = client[settings.DATABASE_NAME]
     collection = db[settings.COLLECTION_NAME]
@@ -159,8 +159,10 @@ def company_data(request):
     companies_data = list(collection.find())
 
     for data in companies_data:
+        # Exclude the "_id" field
+        data.pop('_id', None)
         company = Company.objects.create(data=data)
         company.save()
 
     companies = Company.objects.all()
-    return render(request, 'company_data.html', {'companies': companies})
+    return render(request, 'companies.html', {'companies': companies})
