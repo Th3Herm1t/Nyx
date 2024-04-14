@@ -1,0 +1,19 @@
+<!-- company_data.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Data</title>
+</head>
+<body>
+    <h1>Company Data</h1>
+    <ul>
+        {% for company in companies %}
+        <li>
+            {% for key, value in company.data.items %}
+            <strong>{{ key }}:</strong> {{ value }}<br>
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

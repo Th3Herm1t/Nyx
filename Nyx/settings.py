@@ -132,3 +132,7 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
 'https://glowing-fiesta-94px55gp95g27jw7-8000.preview.app.github.dev'
 ]
+
+MONGODB_URL = "mongodb+srv://abdelkarimbsalah:tDASzHZOWv1f4QGl@cluster0.febr7fs.mongodb.net/?retryWrites=true&w=majority"
+DATABASE_NAME = "KoG"
+COLLECTION_NAME = "companies"

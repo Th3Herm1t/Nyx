@@ -13,3 +13,8 @@ class UserInput(models.Model):
 class Feedback(models.Model):
     user_input = models.ForeignKey(UserInput, on_delete=models.CASCADE, null=True)
     feedback_text = models.TextField()
+
+from django.db import models
+
+class Company(models.Model):
+    data = models.JSONField()

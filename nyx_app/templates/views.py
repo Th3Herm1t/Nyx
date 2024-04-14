@@ -146,3 +146,21 @@ def feedback(request):
 
 
 
+from django.shortcuts import render
+from ..models import Company
+from ..utils import get_mongo_connection
+import Nyx.settings as settings
+
+def company_data(request):
+    client = get_mongo_connection()
+    db = client[settings.DATABASE_NAME]
+    collection = db[settings.COLLECTION_NAME]
+
+    companies_data = list(collection.find())
+
+    for data in companies_data:
+        company = Company.objects.create(data=data)
+        company.save()
+
+    companies = Company.objects.all()
+    return render(request, 'company_data.html', {'companies': companies})
